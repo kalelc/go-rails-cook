@@ -1,4 +1,4 @@
-package decrypt
+package rails5cook
 
 import (
 	"testing"
@@ -11,8 +11,8 @@ func TestRails5CookieDecrypt(t *testing.T) {
 
 	sessionID := "05fff49bbc0f9e6e8101e4e81b947ebe"
 
-	cookie := Rails5Cookie{Value: value, SecretKeyBase: secret, Salt: salt}
-	cookie.Init()
+	cookie := Cookie{Value: value, SecretKeyBase: secret, Salt: salt}
+	cookie.Decrypt()
 
 	if cookie.Content.SessionID != sessionID {
 		t.Errorf("session_id in cookie doesn't match: got %v want %v", cookie.Content.SessionID, sessionID)

@@ -1,4 +1,4 @@
-module github.com/kalelc/go-rails-cookie
+module github.com/kalelc/go-rails-cook
 
 go 1.13
 

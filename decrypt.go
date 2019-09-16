@@ -1,4 +1,4 @@
-package decrypt
+package rails5cook
 
 import (
 	"crypto/aes"
@@ -11,26 +11,12 @@ import (
 	"golang.org/x/crypto/pbkdf2"
 )
 
-type Rails5Cookie struct {
-	Value         string
-	Data          []byte
-	Iv            []byte
-	SecretKeyBase string
-	Salt          string
-	Content       *Content
-}
-
-type Content struct {
-	SessionID string `json:"session_id"`
-	Csrf      string `json:"_csrf_token"`
-}
-
 const (
 	keyIterNum = 1000
 	keySize    = 32
 )
 
-func (cookie *Rails5Cookie) Init() {
+func (cookie *Cookie) Decrypt() {
 	cookie.Decode()
 
 	key := cookie.GenerateKey()
@@ -57,7 +43,7 @@ func (cookie *Rails5Cookie) Init() {
 	}
 }
 
-func (cookie *Rails5Cookie) Decode() {
+func (cookie *Cookie) Decode() {
 
 	encryptedData := strings.Split(cookie.Value, "--")
 
@@ -69,6 +55,6 @@ func (cookie *Rails5Cookie) Decode() {
 	cookie.Iv = []byte(iv)
 }
 
-func (cookie *Rails5Cookie) GenerateKey() []byte {
+func (cookie *Cookie) GenerateKey() []byte {
 	return pbkdf2.Key([]byte(cookie.SecretKeyBase), []byte(cookie.Salt), keyIterNum, keySize, sha1.New)
 }
