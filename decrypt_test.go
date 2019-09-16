@@ -1,7 +1,6 @@
 package decrypt
 
 import (
-	"fmt"
 	"testing"
 )
 
@@ -14,8 +13,6 @@ func TestRails5CookieDecrypt(t *testing.T) {
 
 	cookie := Rails5Cookie{Value: value, SecretKeyBase: secret, Salt: salt}
 	cookie.Init()
-
-	fmt.Printf("%+v", cookie.Content)
 
 	if cookie.Content.SessionID != sessionID {
 		t.Errorf("session_id in cookie doesn't match: got %v want %v", cookie.Content.SessionID, sessionID)
