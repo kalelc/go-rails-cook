@@ -1,4 +1,4 @@
-package rails5cook
+package railscook
 
 type Cookie struct {
 	Value         string
