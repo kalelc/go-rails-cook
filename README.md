@@ -1,6 +1,6 @@
 # go-rails-cook
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/kalelc/go-rails-cookie)](https://goreportcard.com/report/github.com/kalelc/go-rails-cookie)
+[![Go Report Card](https://goreportcard.com/badge/github.com/kalelc/go-rails-cookie)](https://goreportcard.com/report/github.com/kalelc/go-rails-cookie) [![CircleCI](https://circleci.com/gh/kalelc/go-rails-cook/tree/master.svg?style=svg)](https://circleci.com/gh/kalelc/go-rails-cook/tree/master)
 
 
 `go-rails-cook` is a project to works with Rails' Cookies. It allows decrypting(until this moment) Cookies created with Rails 5 and higher.
